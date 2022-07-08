@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "proto:install": "npm i git+https://github.com/eugenemazamda/grpc-martee-proto.git",
     "proto:auth": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-martee-proto/proto --ts_proto_out=src/auth/ node_modules/grpc-martee-proto/proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:all": "npm run proto:auth"
+    "proto:categories": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-martee-proto/proto --ts_proto_out=src/categories/ node_modules/grpc-martee-proto/proto/categories.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:all": "npm run proto:auth && npm run proto:categories"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.6.7",
@@ -31,10 +32,12 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/microservices": "^8.4.7",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/swagger": "^6.0.1",
     "grpc-martee-proto": "github:eugenemazamda/grpc-martee-proto",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
